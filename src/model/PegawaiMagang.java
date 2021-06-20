@@ -1,5 +1,6 @@
 package model;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -9,6 +10,23 @@ public class PegawaiMagang extends Pegawai {
     public String asalKampus;
     public int lamaMagang;
     public Date tglMulaiMagang, tglAkhirMagang;
+
+    String polaTanggal = "dd-MM-yyyy";
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat(polaTanggal);
+
+    public PegawaiMagang(String idPegawai, String nama, String alamat, String asalKampus, String tglMulaiMagang, String tglAkhirMagang) throws ParseException {
+        super(idPegawai, nama, alamat, asalKampus, tglMulaiMagang, tglAkhirMagang);
+        this.idPegawai = idPegawai;
+        this.nama = nama;
+        this.alamat = alamat;
+        this.asalKampus = asalKampus;
+        this.jabatan = "Magang";
+        this.tglMulaiMagang = simpleDateFormat.parse(tglMulaiMagang);
+        this.tglAkhirMagang = simpleDateFormat.parse(tglAkhirMagang);
+        this.lamaMagang = hitungLamaMagang();
+        this.absen = false;
+        this.pesanAbsen = "";
+    }
 
     // Method 1
     public int hitungLamaMagang() {

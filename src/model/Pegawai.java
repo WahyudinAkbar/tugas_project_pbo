@@ -1,17 +1,53 @@
 package model;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 public class Pegawai {
     // Atribut
-    public String idPegawai, nama, jabatan, alamat, pesanAbsen = "";
+    public String idPegawai, nama, jabatan, alamat, pesanAbsen, username, password;
     public int gajiPokok, lamaKerja;
     public Date tglPertamaKerja;
-    public Boolean menikah, absen = false;
+    public Boolean menikah, absen;
 
+    String polaTanggal = "dd-MM-yyyy";
+    SimpleDateFormat sdf = new SimpleDateFormat(polaTanggal);
 
+    // Constructor 1
+    public Pegawai(String idPegawai, String nama, String jabatan, String alamat, String tglPertamaKerja, Boolean menikah) throws ParseException {
+        this.pesanAbsen = "";
+        this.absen = false;
+
+        this.idPegawai = idPegawai;
+        this.nama = nama;
+        this.jabatan = inputJabatan(jabatan);
+        this.alamat = alamat;
+        this.tglPertamaKerja = sdf.parse(tglPertamaKerja);
+        this.lamaKerja = hitungLamaKerja();
+        this.menikah = menikah;
+    }
+
+    // Constructor 2, Blueprint Untuk Constructor di Model PegawaiMagang
+    public Pegawai(String idPegawai, String nama, String alamat, String asalKampus, String tglMulaiMagang, String tglAkhirMagang) {
+    }
+
+    // Constructor 3
+    public Pegawai(String idPegawai, String nama, String username, String password) {
+        this.idPegawai = idPegawai;
+        this.nama = nama;
+        this.username = username;
+        this.password = password;
+
+        System.out.println("---------------------------------");
+        System.out.println("  Username dan Password Pegawai  ");
+        System.out.println("---------------------------------");
+        System.out.println("ID Pegawai = " + idPegawai);
+        System.out.println("Nama = " + nama);
+        System.out.println("Username = " + username);
+        System.out.println("Password = " + password);
+    }
 
     // Method 1
     public void absensiPegawai(String nama) {
