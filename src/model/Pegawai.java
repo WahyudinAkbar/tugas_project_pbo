@@ -6,13 +6,15 @@ import java.util.Date;
 
 public class Pegawai {
     // Atribut
-    String idPegawai, nama, jabatan, alamat, pesanAbsen = "";
-    int gajiPokok, lamaKerja;
-    Date tglPertamaKerja;
-    Boolean menikah, absen = false;
+    public String idPegawai, nama, jabatan, alamat, pesanAbsen = "";
+    public int gajiPokok, lamaKerja;
+    public Date tglPertamaKerja;
+    public Boolean menikah, absen = false;
+
+
 
     // Method 1
-    void absensiPegawai(String nama) {
+    public void absensiPegawai(String nama) {
         if (nama.equalsIgnoreCase(this.nama)) {
             this.absen = true;
         } else {
@@ -21,7 +23,7 @@ public class Pegawai {
     }
 
     // Method 2
-    int hitungLamaKerja() {
+    public int hitungLamaKerja() {
         Calendar tglPertamaKerja = Calendar.getInstance();
         tglPertamaKerja.setTime(this.tglPertamaKerja);
         Calendar hariIni = Calendar.getInstance();
@@ -38,7 +40,7 @@ public class Pegawai {
     }
 
     // Method 3
-    void tampilkanData() {
+    public void tampilkanData() {
         String polaTanggal = "dd-MM-yyyy";
         String absen;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(polaTanggal);
@@ -77,7 +79,7 @@ public class Pegawai {
     }
 
     // Method 4
-    String inputJabatan(String jabatan) {
+    public String inputJabatan(String jabatan) {
         switch (jabatan) {
             case "Direktur" -> {
                 this.jabatan = jabatan;
@@ -97,7 +99,7 @@ public class Pegawai {
     }
 
     // Method 5
-    void hitungGaji() {
+    public void hitungGaji() {
         int bonus, tunjangan, gajiTotal;
 
         if (lamaKerja >= 1  && lamaKerja < 3) {

@@ -6,12 +6,12 @@ import java.util.Date;
 
 public class PegawaiMagang extends Pegawai {
     // Atribut
-    String asalKampus;
-    int lamaMagang;
-    Date tglMulaiMagang, tglAkhirMagang;
+    public String asalKampus;
+    public int lamaMagang;
+    public Date tglMulaiMagang, tglAkhirMagang;
 
     // Method 1
-    int hitungLamaMagang() {
+    public int hitungLamaMagang() {
         Calendar tglMulaiMagang = Calendar.getInstance();
         tglMulaiMagang.setTime(this.tglMulaiMagang);
         Calendar tglAkhirMagang = Calendar.getInstance();
@@ -27,7 +27,7 @@ public class PegawaiMagang extends Pegawai {
     }
 
     // Method 2
-    void hitungGajiMagang() {
+    public void hitungGajiMagang() {
         int gajiPerBulan = 2000000;
 
         int gajiTotal = lamaMagang * gajiPerBulan;
@@ -41,7 +41,7 @@ public class PegawaiMagang extends Pegawai {
         System.out.println("Total Gaji " + this.nama + " = " + gajiTotal);
     }
 
-    void tampilkanDataPegawaiMagang() {
+    public void tampilkanDataPegawaiMagang() {
         String polaTanggal = "dd-MM-yyyy";
         String absen;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(polaTanggal);
