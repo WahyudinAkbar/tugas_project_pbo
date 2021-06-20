@@ -77,40 +77,48 @@ public class Pegawai {
 
     // Method 3
     public void tampilkanData() {
-        String polaTanggal = "dd-MM-yyyy";
-        String absen;
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(polaTanggal);
+        if (this.jabatan.equals("Direktur") || this.jabatan.equals("Manajer") || this.jabatan.equals("Staf")) {
+            String polaTanggal = "dd-MM-yyyy";
+            String absen;
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(polaTanggal);
 
-        System.out.println("---------------------------------");
-        System.out.println("          Data Pegawai           ");
-        System.out.println("---------------------------------");
-        System.out.println("ID Pegawai = " + this.idPegawai);
-        System.out.println("Nama = " + this.nama);
-        System.out.println("Jabatan = " + this.jabatan);
-        System.out.println("Gaji Pokok = " + this.gajiPokok);
-        System.out.println("Tanggal Pertama Kerja = " + simpleDateFormat.format(this.tglPertamaKerja));
-        System.out.println("Alamat = " + this.alamat);
-        System.out.println("Lama Kerja = " + this.lamaKerja + " Tahun");
+            System.out.println("---------------------------------");
+            System.out.println("          Data Pegawai           ");
+            System.out.println("---------------------------------");
+            System.out.println("ID Pegawai = " + this.idPegawai);
+            System.out.println("Nama = " + this.nama);
+            System.out.println("Jabatan = " + this.jabatan);
+            System.out.println("Gaji Pokok = " + this.gajiPokok);
+            System.out.println("Tanggal Pertama Kerja = " + simpleDateFormat.format(this.tglPertamaKerja));
+            System.out.println("Alamat = " + this.alamat);
+            System.out.println("Lama Kerja = " + this.lamaKerja + " Tahun");
 
-        if (this.menikah) {
-            System.out.println("Menikah = Sudah Menikah");
+            if (this.menikah) {
+                System.out.println("Menikah = Sudah Menikah");
+            } else {
+                System.out.println("Menikah = Belum Menikah");
+            }
+
+            if (this.absen) {
+                absen = "Hadir";
+            } else {
+                absen = "Tidak Hadir";
+            }
+
+            System.out.println("---------------------------------");
+            System.out.println("         Absensi Pegawai         ");
+            System.out.println("---------------------------------");
+            if (pesanAbsen.isEmpty()) {
+                System.out.println(this.nama + " " + simpleDateFormat.format(new Date()) + " = " + absen);
+            } else {
+                System.out.println(pesanAbsen);
+            }
         } else {
-            System.out.println("Menikah = Belum Menikah");
-        }
-
-        if (this.absen) {
-            absen = "Hadir";
-        } else {
-            absen = "Tidak Hadir";
-        }
-
-        System.out.println("---------------------------------");
-        System.out.println("         Absensi Pegawai         ");
-        System.out.println("---------------------------------");
-        if (pesanAbsen.isEmpty()) {
-            System.out.println(this.nama + " " + simpleDateFormat.format(new Date()) + " = " + absen);
-        } else {
-            System.out.println(pesanAbsen);
+            System.out.println("Maaf " + this.nama + ", Jabatan Yang Anda Masukkan Tidak Tersedia, Silahkan Input Ulang");
+            System.out.println("Jabatan Yang Tersedia : ");
+            System.out.println("1.Manajer");
+            System.out.println("2.Direktur");
+            System.out.println("3.Staf");
         }
     }
 
@@ -128,40 +136,41 @@ public class Pegawai {
             case "Staf" -> {
                 this.jabatan = jabatan;
                 this.gajiPokok = 6000000;
-            }
-            default -> System.out.println("Jabatan Yang Anda Masukkan Salah");
+            } default -> this.jabatan = jabatan;
         }
         return this.jabatan;
     }
 
     // Method 5
     public void hitungGaji() {
-        int bonus, tunjangan, gajiTotal;
+        if (this.jabatan.equals("Direktur") || this.jabatan.equals("Manajer") || this.jabatan.equals("Staf")) {
+            int bonus, tunjangan, gajiTotal;
 
-        if (lamaKerja >= 1  && lamaKerja < 3) {
-            bonus = 1000000;
-        } else if (lamaKerja >= 3 ) {
-            bonus = 1500000;
-        } else {
-            bonus = 0;
+            if (lamaKerja >= 1 && lamaKerja < 3) {
+                bonus = 1000000;
+            } else if (lamaKerja >= 3) {
+                bonus = 1500000;
+            } else {
+                bonus = 0;
+            }
+
+            if (menikah) {
+                tunjangan = 750000;
+            } else {
+                tunjangan = 0;
+            }
+
+            gajiTotal = this.gajiPokok + bonus + tunjangan;
+
+            System.out.println("---------------------------------");
+            System.out.println("      Menghitung Total Gaji      ");
+            System.out.println("---------------------------------");
+
+            System.out.println("Gaji Pokok = " + gajiPokok);
+            System.out.println("Bonus Kerja " + this.lamaKerja + " Tahun = " + bonus);
+            System.out.println("Tunjangan Menikah = " + tunjangan);
+            System.out.println("Total Gaji " + this.nama + " = " + gajiTotal);
         }
-
-        if (menikah) {
-            tunjangan = 750000;
-        } else {
-            tunjangan = 0;
-        }
-
-        gajiTotal = this.gajiPokok + bonus + tunjangan;
-
-        System.out.println("---------------------------------");
-        System.out.println("      Menghitung Total Gaji      ");
-        System.out.println("---------------------------------");
-
-        System.out.println("Gaji Pokok = " + gajiPokok);
-        System.out.println("Bonus Kerja " + this.lamaKerja + " Tahun = " + bonus);
-        System.out.println("Tunjangan Menikah = " + tunjangan);
-        System.out.println("Total Gaji " + this.nama + " = " + gajiTotal);
     }
 
 }

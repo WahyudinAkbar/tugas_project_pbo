@@ -2,39 +2,47 @@ import model.Pegawai;
 import model.PegawaiMagang;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 public class Main {
     public static void main(String[] args) throws ParseException {
-        String polaTanggal = "dd-MM-yyyy";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(polaTanggal);
 
-        Pegawai pegawai2 = new Pegawai();
-        pegawai2.idPegawai = "WHY-01";
-        pegawai2.nama = "M Wahyudin Akbar";
-        pegawai2.tglPertamaKerja = simpleDateFormat.parse("17-04-2019");
-        pegawai2.alamat = "Kandangan, HSS";
-        pegawai2.jabatan = pegawai2.inputJabatan("Staf");
-        pegawai2.lamaKerja = pegawai2.hitungLamaKerja();
-        pegawai2.menikah = false;
-        pegawai2.absensiPegawai("m wahyudin akbar");
-        pegawai2.tampilkanData();
-        pegawai2.hitungGaji();
+        // Object 1
+        Pegawai wahyudinAkbar = new Pegawai("WHY-01", "M Wahyudin Akbar", "Direktur", "Kandangan", "17-04-2019", false);
+        wahyudinAkbar.absensiPegawai("m wahyudin akbar");
+        wahyudinAkbar.tampilkanData();
+        wahyudinAkbar.hitungGaji();
 
-        System.out.println(" ");
+        System.out.println();
 
-        PegawaiMagang pegawaiMagang1 = new PegawaiMagang();
-        pegawaiMagang1.idPegawai = "MG-01";
-        pegawaiMagang1.nama = "Dodoy";
-        pegawaiMagang1.asalKampus = "UNISKA";
-        pegawaiMagang1.jabatan = "Magang";
-        pegawaiMagang1.alamat = "Kayu Abang";
-        pegawaiMagang1.tglMulaiMagang = simpleDateFormat.parse("21-05-2021");
-        pegawaiMagang1.tglAkhirMagang = simpleDateFormat.parse("20-08-2021");
-        pegawaiMagang1.lamaMagang = pegawaiMagang1.hitungLamaMagang();
-        pegawaiMagang1.absensiPegawai("dodoy");
-        pegawaiMagang1.tampilkanDataPegawaiMagang();
-        pegawaiMagang1.hitungGajiMagang();
+        // Object 2
+        Pegawai adityaPratama = new Pegawai("WHY-02", "Aditya Pratama", "Staf", "Rantau", "21-03-2018", true);
+        adityaPratama.tampilkanData();
+        adityaPratama.hitungGaji();
+
+        System.out.println();
+
+        // Object 3
+        PegawaiMagang saleh = new PegawaiMagang("MG-01", "M Saleh", "Barabai", "UNISKA", "17-06-2021", "18-08-2021");
+        saleh.absensiPegawai("m saleh");
+        saleh.tampilkanDataPegawaiMagang();
+        saleh.hitungGajiMagang();
+
+        System.out.println();
+
+        // Object 4
+        PegawaiMagang aldi = new PegawaiMagang("MG-02", "M Aldi", "Banjarbaru", "UNLAM", "19-06-2021", "21-07-2021");
+        aldi.tampilkanDataPegawaiMagang();
+        aldi.hitungGajiMagang();
+
+        System.out.println();
+
+        // Object 5
+        Pegawai vicco = new Pegawai("WHY-03", "Vicco Dwi P", "vicco", "vicco123");
+
+        System.out.println();
+
+        // Object 6
+        Pegawai rudi = new Pegawai("WHY-04", "Rudi Maulana", "rudi", "rudi123");
     }
 
 }
