@@ -15,6 +15,102 @@ public class Pegawai {
     String polaTanggal = "dd-MM-yyyy";
     SimpleDateFormat sdf = new SimpleDateFormat(polaTanggal);
 
+    public String getIdPegawai() {
+        return idPegawai;
+    }
+
+    public void setIdPegawai(String idPegawai) {
+        this.idPegawai = idPegawai;
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
+
+    public String getJabatan() {
+        return jabatan;
+    }
+
+    public void setJabatan(String jabatan) {
+        this.jabatan = jabatan;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
+    public String getPesanAbsen() {
+        return pesanAbsen;
+    }
+
+    public void setPesanAbsen(String pesanAbsen) {
+        this.pesanAbsen = pesanAbsen;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public int getGajiPokok() {
+        return gajiPokok;
+    }
+
+    public void setGajiPokok(int gajiPokok) {
+        this.gajiPokok = gajiPokok;
+    }
+
+    public int getLamaKerja() {
+        return lamaKerja;
+    }
+
+    public void setLamaKerja(int lamaKerja) {
+        this.lamaKerja = lamaKerja;
+    }
+
+    public Date getTglPertamaKerja() {
+        return tglPertamaKerja;
+    }
+
+    public void setTglPertamaKerja(Date tglPertamaKerja) {
+        this.tglPertamaKerja = tglPertamaKerja;
+    }
+
+    public Boolean getMenikah() {
+        return menikah;
+    }
+
+    public void setMenikah(Boolean menikah) {
+        this.menikah = menikah;
+    }
+
+    public Boolean getAbsen() {
+        return absen;
+    }
+
+    public void setAbsen(Boolean absen) {
+        this.absen = absen;
+    }
+
     // Constructor 1
     public Pegawai(String idPegawai, String nama, String jabatan, String alamat, String tglPertamaKerja, Boolean menikah) throws ParseException {
         this.pesanAbsen = "";
