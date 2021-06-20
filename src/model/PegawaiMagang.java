@@ -14,6 +14,38 @@ public class PegawaiMagang extends Pegawai {
     String polaTanggal = "dd-MM-yyyy";
     SimpleDateFormat simpleDateFormat = new SimpleDateFormat(polaTanggal);
 
+    public String getAsalKampus() {
+        return asalKampus;
+    }
+
+    public void setAsalKampus(String asalKampus) {
+        this.asalKampus = asalKampus;
+    }
+
+    public int getLamaMagang() {
+        return lamaMagang;
+    }
+
+    public void setLamaMagang(int lamaMagang) {
+        this.lamaMagang = lamaMagang;
+    }
+
+    public Date getTglMulaiMagang() {
+        return tglMulaiMagang;
+    }
+
+    public void setTglMulaiMagang(Date tglMulaiMagang) {
+        this.tglMulaiMagang = tglMulaiMagang;
+    }
+
+    public Date getTglAkhirMagang() {
+        return tglAkhirMagang;
+    }
+
+    public void setTglAkhirMagang(Date tglAkhirMagang) {
+        this.tglAkhirMagang = tglAkhirMagang;
+    }
+
     public PegawaiMagang(String idPegawai, String nama, String alamat, String asalKampus, String tglMulaiMagang, String tglAkhirMagang) throws ParseException {
         super(idPegawai, nama, alamat, asalKampus, tglMulaiMagang, tglAkhirMagang);
         this.idPegawai = idPegawai;
