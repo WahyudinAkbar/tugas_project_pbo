@@ -60,6 +60,26 @@ public class PegawaiMagang extends Pegawai {
         this.pesanAbsen = "";
     }
 
+    // Overriding 1
+    public boolean cariPegawaiMagang() {
+        System.out.println("---------------------------------");
+        System.out.println("         Hasil Pencarian         ");
+        System.out.println("---------------------------------");
+        System.out.println("ID Pegawai : " + this.idPegawai);
+        System.out.println("Nama : " + this.nama);
+        return false;
+    }
+
+    // Overriding 2
+    public boolean cariPegawaiMagang(String asalKampus) {
+        System.out.println("---------------------------------");
+        System.out.println("         Hasil Pencarian         ");
+        System.out.println("---------------------------------");
+        System.out.println("ID Pegawai : " + this.idPegawai);
+        System.out.println("Nama : " + this.nama);
+        return false;
+    }
+
     // Method 1
     public int hitungLamaMagang() {
         Calendar tglMulaiMagang = Calendar.getInstance();
